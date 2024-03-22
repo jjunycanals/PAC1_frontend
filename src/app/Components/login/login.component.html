@@ -1,0 +1,24 @@
+<div style="margin-left: auto; margin-right: auto">
+  <p id="loginFeedback"></p>
+</div>
+<div>
+  <h1>Login</h1>
+
+  <!-- TODO 21 -->
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" formControlName="email" placeholder="Email..." />
+      <span *ngIf="email.invalid && email.touched" style="color: red">Email required</span>
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" formControlName="password" placeholder="Password..." />
+      <span *ngIf="password.invalid && password.touched" style="color: red">Password required</span>
+    </div>
+    <div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </div>
+  </form>
+
+</div>

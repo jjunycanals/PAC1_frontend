@@ -1,0 +1,79 @@
+<div style="margin-left: auto; margin-right: auto">
+  <p id="registerFeedback"></p>
+</div>
+<div>
+  <h1>Register</h1>
+
+  <!-- TODO 18 -->
+  <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="register()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <span *ngIf="name.invalid && (name.dirty || name.touched)" style="color: red">
+        <span *ngIf="name.errors?.required">Name is required</span>
+        <span *ngIf="name.errors?.minlength">Name must be at least 5 characters</span>
+        <span *ngIf="name.errors?.maxlength">Name must be at most 25 characters</span>
+      </span>
+    </div>
+
+    <div>
+      <label for="surname_1">Surname 1:</label>
+      <input type="text" id="surname_1" formControlName="surname_1">
+      <span *ngIf="surname_1.invalid && (surname_1.dirty || surname_1.touched)" style="color: red">
+        <span *ngIf="surname_1.errors?.required">Surname 1 is required</span>
+        <span *ngIf="surname_1.errors?.minlength">Surname 1 must be at least 5 characters</span>
+        <span *ngIf="surname_1.errors?.maxlength">Surname 1 must be at most 25 characters</span>
+      </span>
+    </div>
+
+    <div>
+      <label for="surname_2">Surname 2:</label>
+      <input type="text" id="surname_2" formControlName="surname_2">
+      <span *ngIf="surname_2.invalid && (surname_2.dirty || surname_2.touched)" style="color: red">
+        <span *ngIf="surname_2.errors?.minlength">Surname 2 must be at least 5 characters</span>
+        <span *ngIf="surname_2.errors?.maxlength">Surname 2 must be at most 25 characters</span>
+      </span>
+    </div>
+
+    <div>
+      <label for="alias">Alias:</label>
+      <input type="text" id="alias" formControlName="alias">
+      <span *ngIf="alias.invalid && (alias.dirty || alias.touched)" style="color: red">
+        <span *ngIf="alias.errors?.required">Alias is required</span>
+        <span *ngIf="alias.errors?.minlength">Alias must be at least 5 characters</span>
+        <span *ngIf="alias.errors?.maxlength">Alias must be at most 25 characters</span>
+      </span>
+    </div>
+
+    <div>
+      <label for="birth_date">Birth Date:</label>
+      <input type="date" id="birth_date" formControlName="birth_date">
+      <span *ngIf="birth_date.invalid && (birth_date.dirty || birth_date.touched)" style="color: red">
+        <span *ngIf="birth_date.errors?.required">Birth Date is required</span>
+      </span>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <span *ngIf="email.invalid && (email.dirty || email.touched)" style="color: red">
+        <span *ngIf="email.errors?.required">Email is required</span>
+        <span *ngIf="email.errors?.email">Invalid email format</span>
+      </span>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <span *ngIf="password.invalid && (password.dirty || password.touched)" style="color: red">
+        <span *ngIf="password.errors?.required">Password is required</span>
+        <span *ngIf="password.errors?.minlength">Password must be at least 8 characters</span>
+        <span *ngIf="password.errors?.maxlength">Password must be at most 16 characters</span>
+      </span>
+    </div>
+
+    <div>
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </div>
+  </form>
+</div>
